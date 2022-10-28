@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import MovieList from "./components/MovieList";
 import MovieListHeading from "./components/MovieListHeading";
 import SearchBox from "./components/SearchBox";
@@ -52,6 +52,20 @@ function App() {
     }
   }, []);
 
+  const infoRef = useRef();
+  useEffect(() => {
+    const handleInfoClose = (e) => {
+      if (!infoRef.current.contains(e.target)) {
+        setInfoIsActive(false);
+      }
+    };
+
+    document.body.addEventListener("mousedown", handleInfoClose);
+    return () => {
+      document.body.removeEventListener("mousedown", handleInfoClose);
+    };
+  }, [infoIsActive]);
+
   const saveToLocalStorage = (items) => {
     localStorage.setItem("react-movie-app-favorites", JSON.stringify(items));
   };
@@ -86,6 +100,7 @@ function App() {
           movie={activeMovie}
           setInfoIsActive={setInfoIsActive}
           loading={loading}
+          infoRef={infoRef}
         />
       )}
       <div className="row d-flex align-items-center mt-4 mb-4">

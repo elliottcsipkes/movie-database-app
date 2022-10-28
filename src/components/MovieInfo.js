@@ -2,7 +2,7 @@ import React from "react";
 import { FaTimes } from "react-icons/fa";
 import { RotatingLines } from "react-loader-spinner";
 
-const MovieInfo = ({ movie, setInfoIsActive, loading }) => {
+const MovieInfo = ({ movie, setInfoIsActive, loading, infoRef }) => {
   const {
     Title,
     Year,
@@ -16,7 +16,7 @@ const MovieInfo = ({ movie, setInfoIsActive, loading }) => {
   } = movie;
   return (
     <div className="outside">
-      <div className="info-card">
+      <div className="info-card" ref={infoRef}>
         <div className={`${loading ? "loading" : "no-display"}`}>
           <RotatingLines
             strokeColor="white"
