@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="header">
       <h1>
-        Film<span style={{ color: "#2142AB" }}>Finder</span>
+        movie<span style={{ color: "#3057d8" }}>base</span>
       </h1>
       <FaSearch className="logo" />
     </div>
