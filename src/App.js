@@ -8,6 +8,7 @@ import FavMovieList from "./components/FavMovieList";
 import MovieInfo from "./components/MovieInfo";
 import Header from "./components/Header";
 import { initialMovies } from "./initialMovies";
+import Footer from "./components/Footer";
 
 function App() {
   const [movies, setMovies] = useState(initialMovies);
@@ -93,39 +94,45 @@ function App() {
   };
 
   return (
-    <div className="container-fluid movie-app">
-      <Header />
-      {infoIsActive && (
-        <MovieInfo
-          movie={activeMovie}
-          setInfoIsActive={setInfoIsActive}
-          loading={loading}
-          infoRef={infoRef}
-        />
-      )}
-      <div className="row d-flex align-items-center mt-4 mb-4">
-        <MovieListHeading heading="Movies" />
-        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
+    <>
+      <div className="container-fluid movie-app">
+        <Header />
+        {infoIsActive && (
+          <MovieInfo
+            movie={activeMovie}
+            setInfoIsActive={setInfoIsActive}
+            loading={loading}
+            infoRef={infoRef}
+          />
+        )}
+        <div className="row d-flex align-items-center mt-4 mb-2">
+          <MovieListHeading heading="Movies" />
+          <SearchBox
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />
+        </div>
+        <div className="row">
+          <MovieList
+            handleFavorites={addFavoriteMovie}
+            searchValue={searchValue}
+            movies={movies}
+            handleMovieInfo={handleMovieInfo}
+          />
+        </div>
+        <div className="row d-flex align-items-center mt-4 mb-2">
+          <MovieListHeading heading="Favorites" />
+        </div>
+        <div className="row">
+          <FavMovieList
+            favorites={favorites}
+            handleRemoveFavorites={removeFavoriteMovie}
+            handleMovieInfo={handleMovieInfo}
+          />
+        </div>
       </div>
-      <div className="row">
-        <MovieList
-          handleFavorites={addFavoriteMovie}
-          searchValue={searchValue}
-          movies={movies}
-          handleMovieInfo={handleMovieInfo}
-        />
-      </div>
-      <div className="row d-flex align-items-center mt-4 mb-4">
-        <MovieListHeading heading="Favorites" />
-      </div>
-      <div className="row">
-        <FavMovieList
-          favorites={favorites}
-          handleRemoveFavorites={removeFavoriteMovie}
-          handleMovieInfo={handleMovieInfo}
-        />
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 
