@@ -8,6 +8,9 @@ const MovieInfo = ({ movie, setInfoIsActive, loading, infoRef }) => {
     Year,
     Rated,
     Genre,
+    Runtime,
+    Director,
+    Actors,
     Plot,
     Poster,
     BoxOffice,
@@ -40,36 +43,55 @@ const MovieInfo = ({ movie, setInfoIsActive, loading, infoRef }) => {
             <p>
               <strong>{Year}</strong>
             </p>
-            <img src={Poster} alt={`${Title} poster`} className="poster" />
-            <div className="ratings">
-              <p>
-                <strong>IMDB Rating:</strong>
-                {` ${imdbRating}`}
-              </p>
-              <p>
-                {" "}
-                <strong>Metacritic Rating:</strong>
-                {` ${Metascore}`}
-              </p>
-            </div>
           </div>
-          <div className="info-bot">
-            <p>
-              <strong>Genre:</strong>
-              {` ${Genre}`}
-            </p>
-            <p>
-              <strong>Rated:</strong>
-              {` ${Rated}`}
-            </p>
-            <p>
-              <strong>Box Office Sales:</strong>
-              {` ${BoxOffice}`}
-            </p>
-            <p>
-              <strong>Plot:</strong>
-              {` ${Plot}`}
-            </p>
+          <div className="info-content">
+            <div className="left">
+              <img src={Poster} alt={`${Title} poster`} className="poster" />
+            </div>
+            <div className="right">
+              <div className="ratings">
+                <p>
+                  <strong>IMDB Rating:</strong>
+                  {` ${imdbRating}`}
+                </p>
+                <p>
+                  {" "}
+                  <strong>Metacritic Rating:</strong>
+                  {` ${Metascore}`}
+                </p>
+              </div>
+
+              <div className="info-bot">
+                <p>
+                  <strong>Rated:</strong>
+                  {` ${Rated}`}
+                </p>
+                <p>
+                  <strong>Genre:</strong>
+                  {` ${Genre}`}
+                </p>
+                <p>
+                  <strong>Runtime:</strong>
+                  {` ${Runtime}`}
+                </p>
+                <p>
+                  <strong>Director:</strong>
+                  {` ${Director}`}
+                </p>
+                <p>
+                  <strong>Actors:</strong>
+                  {` ${Actors}`}
+                </p>
+                <p>
+                  <strong>Box Office Sales:</strong>
+                  {` ${BoxOffice}`}
+                </p>
+                <p>
+                  <strong>Plot:</strong>
+                  {` ${Plot}`}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

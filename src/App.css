@@ -76,13 +76,24 @@ body {
 .fav-btn:hover{
 	color:rgb(204, 19, 19);
 }
-
+.outside{
+	width: 100vw;
+ 	height: 100vh;
+  	top: 0;
+  	left: 0;
+  	right: 0;
+  	bottom: 0;
+  	position: fixed;
+  	z-index: 9999;
+	background-color: #17181a;
+	overflow: scroll;
+}
 .info-card{
 	position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-	max-width: 550px;
-	min-height: 92vh;
+	top: 8%;
+	left: 8%;
+	max-width: 80%;
+	min-width: 60%;
 	color: white;
 	background-color: #313131;
 	z-index: 10;
@@ -121,19 +132,31 @@ body {
 	justify-content: center;
 	margin-top: -25px;
 }
+.info-content{
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	padding-top: 12px;
+}
+.left{
+	padding-right: 24px;
+}
+.right{
+	max-width: 70%;
+}
 .poster{
-	max-height: 300px;
+	max-width: 400px;
 	padding-bottom: 15px;
 }
 .ratings{
 	display: flex;
 	flex-direction: row;
-	min-width: 65%;
+	max-width: 65%;
 	justify-content: space-between;
-	font-size: 14px;
+	font-size: 16px;
 }
 .info-bot{
-	font-size: 14px;
+	font-size: 16px;
 	margin: 0;
 	padding: 0;
 }
@@ -142,12 +165,37 @@ body {
 	flex-direction: row;
 	justify-content: space-between;
 }
+
+@media (max-width: 768px) {
+	.info-card,
+	.outside {
+	  overflow: scroll;
+	}
+	.info-content {
+	  flex-direction: column;
+	  align-items: center;
+	}
+	.ratings{
+		max-width: 110%;
+	}
+	.left, .right{
+		padding: 0;
+	}
+	.left{
+		margin: auto;
+	}
+	.right{
+	  min-width: 110%;
+	  margin: auto;
+	}
+  }
+
 .loading{
 	display: flex;
 	align-self: center;
 	justify-content: center;
-	min-width: 400px;
-	min-height: 600px;
+	min-width: 100vh;
+	min-height: 80vh;
 }
 .no-display{
 	display: none;
