@@ -20,7 +20,7 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const getMovieRequest = async () => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=ebad9dd1`;
+    const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=ebad9dd1`;
     const res = await fetch(url);
     const data = await res.json();
     if (data.Search) {
@@ -29,7 +29,7 @@ function App() {
   };
   const getSingleMovie = async () => {
     setLoading(true);
-    const url = `http://www.omdbapi.com/?i=${movieId}&apikey=ebad9dd1`;
+    const url = `https://www.omdbapi.com/?i=${movieId}&apikey=ebad9dd1`;
     const res = await fetch(url);
     const data = await res.json();
     setActiveMovie(data);
