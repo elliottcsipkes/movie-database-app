@@ -7,7 +7,7 @@
 - Hover over a movie poster to display the "Add to Favorites" button. Clicking this button will save the movie to your favorites list.
 - Favorite movies are saved to local storage so that you will only have to add your favorite films to the list once!
 
-### Areas for Improvement
+### Possible Future Improvement
 
 - Add advanced search options such as genre, rating, etc.
 - Include a featured movies section of recent releases
